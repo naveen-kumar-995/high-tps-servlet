@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  high-tps-servlet:
+    build: .
+    container_name: high-tps-api-servlet
+    ports:
+      - "8480:8080"
+    restart: unless-stopped
+
+    logging:
+      driver: "none"

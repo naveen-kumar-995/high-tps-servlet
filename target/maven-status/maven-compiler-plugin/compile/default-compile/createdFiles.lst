@@ -1,0 +1,4 @@
+com\ptsl\beacon\nettyserver\NettyHttpServer.class
+com\ptsl\beacon\nettyserver\NettyRequestHandler.class
+com\ptsl\beacon\nettyserver\HttpServerInitializer.class
+com\ptsl\beacon\App.class
