@@ -7,7 +7,7 @@ RUN rm -rf /opt/apps/high-tps-servlet/conf/logback.xml
 
 RUN mkdir -p /opt/apps/high-tps-servlet/conf
 
-COPY high-tps-servlet/logback.xml /opt/apps/high-tps-servlet/conf/logback.xml
+COPY logback.xml /opt/apps/high-tps-servlet/conf/logback.xml
 
 # Copy the Spring Boot JAR file into the container
 COPY target/high-tps-servlet-1.0-SNAPSHOT.jar app.jar
