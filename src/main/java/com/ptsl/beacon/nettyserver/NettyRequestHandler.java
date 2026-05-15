@@ -97,7 +97,7 @@ public class NettyRequestHandler extends SimpleChannelInboundHandler<FullHttpReq
         Map<String, Object> response = Map.of(
                 "success", true,
                 "message", "Scrubbing logged successfully",
-                "data", Map.of("authcode", uuid)
+                "data", Map.of("authcode", uuid, "dlr_code" , "000")
                                              );
 
         sendJson(ctx, 200, response);
