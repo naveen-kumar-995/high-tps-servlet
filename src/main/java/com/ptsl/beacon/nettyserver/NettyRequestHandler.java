@@ -52,7 +52,7 @@ public class NettyRequestHandler extends SimpleChannelInboundHandler<FullHttpReq
                 handleGenerate(ctx);
 
             }
-            else if (uri.startsWith("/api/main/scrubbing-logs-init") && method.equals(HttpMethod.POST)) {
+            else if (uri.startsWith("/api/main/init-scrubbing-logs") && method.equals(HttpMethod.POST)) {
                 if (log.isDebugEnabled()) log.debug("Routing to handleInitGenerate()");
                 handleInitGenerate(ctx);
 
