@@ -51,6 +51,11 @@ public class NettyRequestHandler extends SimpleChannelInboundHandler<FullHttpReq
                 if (log.isDebugEnabled()) log.debug("Routing to handleGenerate()");
                 handleGenerate(ctx);
 
+            }
+            else if (uri.startsWith("/api/main/scrubbing-logs-init") && method.equals(HttpMethod.POST)) {
+                if (log.isDebugEnabled()) log.debug("Routing to handleInitGenerate()");
+                handleInitGenerate(ctx);
+
             } else if (uri.startsWith("/api/main/scrubbing-logs") && method.equals(HttpMethod.GET)) {
                 if (log.isDebugEnabled()) log.debug("Routing to handlePing()");
                 handlePing(ctx, uri);
@@ -98,6 +103,18 @@ public class NettyRequestHandler extends SimpleChannelInboundHandler<FullHttpReq
                 "success", true,
                 "message", "Scrubbing logged successfully",
                 "data", Map.of("authcode", uuid, "dlr_code" , "000")
+                                             );
+
+        sendJson(ctx, 200, response);
+    }
+
+    private void handleInitGenerate(ChannelHandlerContext ctx) {
+        String uuid = UUID.randomUUID().toString();
+
+        Map<String, Object> response = Map.of(
+                "status", true,
+                "message", "Scrubbing logged successfully",
+                "data", Map.of("authcode", uuid)
                                              );
 
         sendJson(ctx, 200, response);
